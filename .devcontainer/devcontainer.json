@@ -1,0 +1,25 @@
+{
+	"name": "COSC212 LAMP",
+	"image": "docker.io/dme26/cosc212-lamp:testing",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash"
+			},
+		},
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	//"extensions": [],
+
+	// Use the container's own startup script (/run.sh) rather than VSCode's keep-alive script
+	"overrideCommand": false,
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [80,8080],
+
+	// Docker mount so that the project's www-data folder ends up at /app within the container
+	"mounts": ["source=${localWorkspaceFolder}/www-data,target=/app,type=bind,consistency=cached"]
+}
