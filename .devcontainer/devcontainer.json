@@ -21,5 +21,10 @@
 	"forwardPorts": [80,8080],
 
 	// Docker mount so that the project's www-data folder ends up at /app within the container
-	"mounts": ["source=${localWorkspaceFolder}/www-data,target=/app,type=bind,consistency=cached"]
+	"mounts": [
+		"source=${localWorkspaceFolder}/www-data,target=/app,type=bind,consistency=cached"
+	],
+	"extensions": [
+		"bmewburn.vscode-intelephense-client"
+	]
 }
