@@ -20,10 +20,13 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [80,8080],
 
+	// Relink the webserver
+	"postCreateCommand": "rm /var/www/html && ln -s /workspaces/codespace-web-tech-test/www-data /var/www/html",
+
 	// Docker mount so that the project's www-data folder ends up at /app within the container
-	"mounts": [
-		"source=${localWorkspaceFolder}/www-data,target=/app,type=bind,consistency=cached"
-	],
+	//"mounts": [
+	//	"source=${localWorkspaceFolder}/www-data,target=/app,type=bind,consistency=cached"
+	//],
 	"extensions": [
 		"bmewburn.vscode-intelephense-client"
 	]
